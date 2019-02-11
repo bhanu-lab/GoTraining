@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func AssignVariables() {
 	x := 42
 	y := "James Bond"
 	z := true
