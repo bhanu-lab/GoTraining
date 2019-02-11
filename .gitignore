@@ -8,3 +8,4 @@ bin/golint
 bin/gorename
 bin/goreturns
 bin/guru
+.vscode/*
