@@ -21,7 +21,3 @@ func UseComparisonOperators(a int, b int) {
 	fmt.Println(" a < b value is ", v)
 	fmt.Println(" a > b value is ", u)
 }
-
-func main() {
-	UseComparisonOperators(21, 32)
-}
