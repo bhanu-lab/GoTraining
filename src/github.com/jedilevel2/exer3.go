@@ -36,8 +36,3 @@ func PrintConstTypeValues() {
 	fmt.Printf("%T\n", e)
 	fmt.Printf("%T\n", f)
 }
-
-func main() {
-	PrintConstValues()
-	PrintConstTypeValues()
-}
