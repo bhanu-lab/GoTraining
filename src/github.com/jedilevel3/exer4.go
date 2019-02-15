@@ -1,10 +1,11 @@
-package main
+package jedilevel3
 
 import (
 	"fmt"
 )
 
-func main() {
+// PrintYearsAliveWithForLoop ... prints all years alive using for true statement
+func PrintYearsAliveWithForLoop() {
 
 	born := 1989
 
