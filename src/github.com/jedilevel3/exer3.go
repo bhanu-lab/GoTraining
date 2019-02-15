@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-func main() {
+// PrintAllYearsAlive ... prints all the alive
+func PrintAllYearsAlive() {
 
 	born := 1989
 
