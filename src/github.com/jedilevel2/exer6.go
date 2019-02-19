@@ -9,6 +9,7 @@ const (
 	afterThreeYears
 )
 
+// UsingiotaType ... using iota for auto incrementing in a block
 func UsingiotaType() {
 
 	fmt.Println("Current year is ", year)
