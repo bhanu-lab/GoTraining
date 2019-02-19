@@ -8,6 +8,7 @@ type example struct {
 	favIceCream []string
 }
 
+// CreatingAndUsingStruct ... creating a simple struct
 func CreatingAndUsingStruct() {
 
 	x := example{

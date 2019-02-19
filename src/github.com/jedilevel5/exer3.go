@@ -17,24 +17,25 @@ type sedan struct {
 	luxury bool
 }
 
+// StructOperations ... adding a struct data type into a struct
 func StructOperations() {
 
 	base := truck{
-		vehicle{
+		v1: vehicle{
 			doors: 2,
 			color: "black",
 		},
-		true,
+		fourWheel: true,
 	}
 
 	temp := sedan{
-		vehicle{
+		v2: vehicle{
 			doors: 4,
 			color: "red",
 		},
-		true,
+		luxury: true,
 	}
 
-	fmt.Println(base.doors, "is the number of doors", base.color, "is the color of", base.fourWheel)
-	fmt.Println(temp.doors, "is the number of doors", temp.color, "is the color of", temp.luxury)
+	fmt.Println(base.v1.doors, "is the number of doors", base.v1.color, "is the color of", base.fourWheel)
+	fmt.Println(temp.v2.doors, "is the number of doors", temp.v2.color, "is the color of", temp.luxury)
 }
