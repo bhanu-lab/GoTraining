@@ -26,6 +26,20 @@ func (a byAge) Less(i, j int) bool {
 	return a[i].Age < a[j].Age
 }
 
+type byLast []person
+
+func (b byLast) Len() int {
+	return len(b)
+}
+
+func (b byLast) Swap(i, j int) {
+	b[i], b[j] = b[j], b[i]
+}
+
+func (b byLast) Less(i, j int) bool {
+	return b[i].Last < b[j].Last
+}
+
 func CustomSort() {
 	u1 := person{
 		First: "James",
@@ -62,8 +76,18 @@ func CustomSort() {
 
 	users := []person{u1, u2, u3}
 
+	fmt.Println("Before Sort by Age", users)
+
 	sort.Sort(byAge(users))
 
-	fmt.Println(users)
+	fmt.Println("After Sort Age", users)
+
+	fmt.Println("")
+
+	fmt.Println("Before Sort by Last", users)
+
+	sort.Sort(byLast(users))
+
+	fmt.Println("After Sort Last", users)
 
 }
