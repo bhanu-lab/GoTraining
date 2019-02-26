@@ -40,6 +40,7 @@ func (b byLast) Less(i, j int) bool {
 	return b[i].Last < b[j].Last
 }
 
+// CustomSort ... implemts custom sort for last name and age
 func CustomSort() {
 	u1 := person{
 		First: "James",
@@ -76,18 +77,22 @@ func CustomSort() {
 
 	users := []person{u1, u2, u3}
 
-	fmt.Println("Before Sort by Age", users)
+	for _, v := range users {
+		sort.Strings(person(v).Sayings)
+	}
+
+	fmt.Println("Before Sort by Age\n", users)
 
 	sort.Sort(byAge(users))
 
-	fmt.Println("After Sort Age", users)
+	fmt.Println("After Sort Age\n", users)
 
 	fmt.Println("")
 
-	fmt.Println("Before Sort by Last", users)
+	fmt.Println("Before Sort by Last\n", users)
 
 	sort.Sort(byLast(users))
 
-	fmt.Println("After Sort Last", users)
+	fmt.Println("After Sort Last\n", users)
 
 }
