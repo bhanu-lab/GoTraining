@@ -1,8 +1,9 @@
-package main
+package jedilevel10
 
 import "fmt"
 
-func main() {
+func RangeChannels() {
+
 	c := make(chan int)
 
 	go soldier(c)
@@ -17,6 +18,4 @@ func soldier(c chan<- int) {
 	for i := 0; i < 100; i++ {
 		c <- i
 	}
-
-	close(c)
 }
