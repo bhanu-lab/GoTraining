@@ -1,8 +1,9 @@
-package main
+package jedilevel10
 
 import "fmt"
 
-func main() {
+func CheckChannelsUsage() {
+
 	ch := make(chan int)
 
 	//channels can be converter from generic to specific
