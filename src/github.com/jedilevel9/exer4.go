@@ -1,4 +1,4 @@
-package main
+package jedilevel9
 
 import (
 	"fmt"
@@ -10,7 +10,7 @@ var waitress sync.WaitGroup
 var start = 100
 var mt sync.Mutex
 
-func main() {
+func RemoveRaceCondition() {
 	waitress.Add(start)
 
 	for i := 0; i < start; i++ {
@@ -25,5 +25,5 @@ func main() {
 	}
 
 	waitress.Wait()
-	fmt.Println(count)
+	fmt.Println(counter)
 }
