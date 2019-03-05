@@ -1,8 +1,10 @@
-package main
+package jedilevel10
 
 import "fmt"
 
-func main() {
+// ChannelSelection ...
+func ChannelSelection() {
+
 	eve := make(chan int)
 	odd := make(chan int)
 	quit := make(chan bool)
