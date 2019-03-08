@@ -1,11 +1,8 @@
-package main
+package jedilevel10
 
-import (
-	"fmt"
-)
+import "fmt"
 
-func main() {
-
+func merger() {
 	c := fanInNumbers(Incrementer(), Decrementer())
 
 	for i := range c {
