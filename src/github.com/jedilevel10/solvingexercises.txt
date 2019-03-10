@@ -1,0 +1,5 @@
+exer5: https://play.golang.org/p/ckF6W1kF5mv
+exer4: https://play.golang.org/p/kszJUNvieWg
+exer3: https://play.golang.org/p/tl_KsqJYW8-
+exer2: https://play.golang.org/p/BhhgKXOYAgA
+exer1: https://play.golang.org/p/QHxrG8UEiuq
