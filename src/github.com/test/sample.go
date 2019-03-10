@@ -2,67 +2,30 @@ package main
 
 import (
 	"fmt"
+	"runtime"
+	"sync"
 )
 
+var wg sync.WaitGroup
+
 func main() {
-	//var wg sync.WaitGroup
-	//c := make(chan int)
+	ch := make(chan int)
 
-	c := fanInNumbers(Incrementer(), Decrementer())
-
-	for i := 0; i < 199; i++ {
-		fmt.Println(<-c)
+	for i := 0; i < 10; i++ { // creates 10 go routines and adds to waitgroup
+		wg.Add(1)
+		go func() {
+			for j := 0; j < 10; j++ {
+				ch <- j
+			}
+			wg.Done() // indication of go routine is done to main routine
+		}()
 	}
-}
 
-func Incrementer() <-chan int {
-	c := make(chan int)
-
-	go func() {
-		for i := 1; i < 100; i++ {
-			c <- i
-		}
-		fmt.Println("Done with incrementer ...")
-		close(c)
-	}()
-	return c
-}
-
-func Decrementer() <-chan int {
-	c := make(chan int)
-
-	go func() {
-		for i := 100; i >= 1; i-- {
-			c <- i
-		}
-		fmt.Println("Done with decrementer ...")
-		close(c)
-	}()
-	return c
-}
-
-func fanInNumbers(input1, input2 <-chan int) <-chan int {
-	/* var wg sync.WaitGroup
-	wg.Add(2) */
-	c := make(chan int)
-	go func() {
-		for i := range input1 {
-			c <- i
-		}
-		fmt.Println("Done with first fan in ...")
-		//wg.Done()
-	}()
-
-	go func() {
-		for j := range input2 {
-			c <- j
-		}
-		fmt.Println("Done with second fan in ...")
-		//wg.Done()
-	}()
-
-	/* wg.Wait()
-	close(c)
-	*/
-	return c
+	fmt.Println(runtime.NumGoroutine())
+	wg.Wait()           //wait for all go routines to complete
+	close(ch)           // closing channel after completion of wait fo go routines
+	for v := range ch { // range can be used since channel is closed
+		fmt.Println(v)
+	}
+	fmt.Println("About to exit program ...")
 }
