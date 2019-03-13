@@ -1,4 +1,4 @@
-package main
+package jedilevel10
 
 import (
 	"fmt"
