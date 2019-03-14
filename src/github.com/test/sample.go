@@ -25,6 +25,7 @@ func main() {
 		fmt.Println(<-ch)
 	}
 	fmt.Println("About to exit program ...") */
-	jedilevel11.CheckForError()
+	//jedilevel11.CheckForError()
+	jedilevel11.AddTwoNumbers()
 
 }
