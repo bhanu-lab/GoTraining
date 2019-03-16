@@ -1,0 +1,2 @@
+how are you
+reading a file from golang
