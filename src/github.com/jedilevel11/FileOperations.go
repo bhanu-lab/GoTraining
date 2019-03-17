@@ -26,4 +26,6 @@ func OpenFile() {
 	}
 
 	fmt.Println(string(bs))
+
+	ioutil.WriteFile("names1.txt", []byte("You are so dumb i cant believe it"), 0644)
 }
