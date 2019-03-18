@@ -1,6 +1,7 @@
 package dog
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -22,6 +23,11 @@ func TestYears(t *testing.T) {
 	if v != 70 {
 		t.Fatal("Expected is ", 70, " output is ", v)
 	}
+}
+
+func ExampleYears() {
+	fmt.Println(Years(10))
+	// Output: 70
 }
 
 // go test -cover gives total percent of  coverage of statements
