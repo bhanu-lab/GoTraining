@@ -32,7 +32,17 @@ func getBooks(w http.ResponseWriter, r *http.Request) {
 
 //get single book
 func getBook(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	params := mux.Vars(r) //Get params from request
 
+	//loops through all books
+	for _, book := range books {
+		if book.Id == params["id"] {
+			json.NewEncoder(w).Encode(book)
+			return
+		}
+	}
+	json.NewEncoder(w).Encode(&Book{}) // why do we need to encode here again
 }
 
 //create a book
@@ -47,7 +57,15 @@ func updateBook(w http.ResponseWriter, r *http.Request) {
 
 //delete a book
 func deleteBook(w http.ResponseWriter, r *http.Request) {
-
+	w.Header().Set("Content-Type", "application/json")
+	params := mux.Vars(r)
+	for index, item := range books {
+		if item.Id == params["id"] {
+			books = append(books[:index], books[index+1:]...)
+			break
+		}
+	}
+	json.NewEncoder(w).Encode(books)
 }
 
 func main() {
@@ -55,6 +73,7 @@ func main() {
 	//Init router using mux
 	r := mux.NewRouter()
 
+	//@ TODO implement data base
 	books = append(books, Book{Id: "1", Isbn: "4353534", Title: "Elon Musk", Category: "AutoBiography", Author: &Author{FirstName: "ASHLEE", LastName: "VANCE"}})
 	books = append(books, Book{Id: "2", Isbn: "4353534", Title: "Psycho-Cybernetics", Category: "SelgHelp", Author: &Author{FirstName: "MAXWELL", LastName: "MALTZ"}})
 
