@@ -22,10 +22,10 @@ func CreateMultipleRoutines() {
 	}
 
 	fmt.Println(runtime.NumGoroutine())
-	go func(){
+	/* go func(){
 		wg.Wait()           //wait for all go routines to complete
 		close(ch)           // closing channel after completion of wait fo go routines
-	}
+	} */
 	for v := range ch { // range can be used since channel is closed
 		fmt.Println(v)
 	}

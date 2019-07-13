@@ -1,32 +1,24 @@
 package main
-
 import (
-	"sync"
+    "fmt"
+    "os"
+    "bufio"
+    )
 
-	"github.com/jedilevel11"
-)
-
-var wg sync.WaitGroup
-
-func main() {
-	/* ch := make(chan int)
-
-	for i := 0; i < 10; i++ { // creates 10 go routines and adds to waitgroup
-		go func(i int) {
-			for j := 0; j < 10; j++ {
-				ch <- j * i
-			}
-		}(i)
+func main(){
+	// your code goes here
+	reader := bufio.NewReader(os.Stdin)
+	val,_ := reader.ReadString('\n')
+	
+	for val != "42" {
+	    
+	    val,_ = reader.ReadString('\n')
+	    
+	    if val == "42"{
+	        break
+	    }else{
+	        fmt.Println(val)
+	    }
+	    
 	}
-
-	fmt.Println(runtime.NumGoroutine())
-
-	for v := 0; v < 100; v++ {
-		fmt.Println(<-ch)
-	}
-	fmt.Println("About to exit program ...") */
-	//jedilevel11.CheckForError()
-	//jedilevel11.AddTwoNumbers()
-	jedilevel11.OpenFile()
-
 }
